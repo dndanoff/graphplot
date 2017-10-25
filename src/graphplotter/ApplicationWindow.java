@@ -5,7 +5,6 @@
  */
 package graphplotter;
 
-import graphplotter.ui.components.CanvasPanel;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 

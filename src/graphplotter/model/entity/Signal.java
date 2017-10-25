@@ -18,6 +18,10 @@ public class Signal {
     private Frequency frequency;
     private List<Double> samples;
 
+    public Signal(){
+        this(new Frequency(500), null);
+    }
+    
     public Signal(Frequency frequency, List<Double> samples) {
         this.frequency = frequency;
         this.samples = new ArrayList<>();

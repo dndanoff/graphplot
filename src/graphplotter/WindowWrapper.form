@@ -19,14 +19,14 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="menuPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="canvasPanel1" pref="542" max="32767" attributes="0"/>
+              <Component id="canvasPanel" pref="542" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="menuPanel" max="32767" attributes="0"/>
-          <Component id="canvasPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="canvasPanel" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -79,7 +79,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="sineVisibilityBox" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="cosineVisibilityBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="diffBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="diffVisibilityBox" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -93,7 +93,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="cosineVisibilityBox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="diffBox" min="-2" max="-2" attributes="0"/>
+                      <Component id="diffVisibilityBox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -102,26 +102,29 @@
           <SubComponents>
             <Component class="javax.swing.JCheckBox" name="sineVisibilityBox">
               <Properties>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Sine"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sineVisibilityBoxActionPerformed"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="sineVisibilityBoxItemStateChanged"/>
               </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="cosineVisibilityBox">
               <Properties>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Cosine"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cosineVisibilityBoxActionPerformed"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cosineVisibilityBoxItemStateChanged"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="diffBox">
+            <Component class="javax.swing.JCheckBox" name="diffVisibilityBox">
               <Properties>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Diff"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diffBoxActionPerformed"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="diffVisibilityBoxItemStateChanged"/>
               </Events>
             </Component>
           </SubComponents>
@@ -315,7 +318,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="graphplotter.ui.components.CanvasPanel" name="canvasPanel1">
+    <Component class="graphplotter.ui.components.CanvasPanel" name="canvasPanel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">

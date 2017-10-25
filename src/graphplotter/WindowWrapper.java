@@ -5,11 +5,8 @@
  */
 package graphplotter;
 
-import graphplotter.ui.components.CanvasPanel;
-import graphplotter.ui.components.CoordinateSystem;
-import java.awt.BorderLayout;
+import graphplotter.model.vo.ComponentType;
 import java.awt.Dimension;
-import javax.swing.GroupLayout;
 
 /**
  *
@@ -25,11 +22,11 @@ public class WindowWrapper extends javax.swing.JPanel {
         initCustomComponents();
     }
 
-    private void initCustomComponents(){
-        Dimension s = canvasPanel1.getSize();
+    private void initCustomComponents() {
+        Dimension s = canvasPanel.getSize();
         System.out.println("");
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +40,7 @@ public class WindowWrapper extends javax.swing.JPanel {
         visibilityPanel = new javax.swing.JPanel();
         sineVisibilityBox = new javax.swing.JCheckBox();
         cosineVisibilityBox = new javax.swing.JCheckBox();
-        diffBox = new javax.swing.JCheckBox();
+        diffVisibilityBox = new javax.swing.JCheckBox();
         filterPanel = new javax.swing.JPanel();
         filterApplyBtn = new javax.swing.JButton();
         firstFilterInput = new javax.swing.JTextField();
@@ -61,30 +58,33 @@ public class WindowWrapper extends javax.swing.JPanel {
         devidentInput = new javax.swing.JTextField();
         devisorInput = new javax.swing.JTextField();
         dashLabel = new javax.swing.JLabel();
-        canvasPanel1 = new graphplotter.ui.components.CanvasPanel();
+        canvasPanel = new graphplotter.ui.components.CanvasPanel();
 
         menuPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         visibilityPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Visibility"));
 
+        sineVisibilityBox.setSelected(true);
         sineVisibilityBox.setText("Sine");
-        sineVisibilityBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sineVisibilityBoxActionPerformed(evt);
+        sineVisibilityBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                sineVisibilityBoxItemStateChanged(evt);
             }
         });
 
+        cosineVisibilityBox.setSelected(true);
         cosineVisibilityBox.setText("Cosine");
-        cosineVisibilityBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cosineVisibilityBoxActionPerformed(evt);
+        cosineVisibilityBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cosineVisibilityBoxItemStateChanged(evt);
             }
         });
 
-        diffBox.setText("Diff");
-        diffBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diffBoxActionPerformed(evt);
+        diffVisibilityBox.setSelected(true);
+        diffVisibilityBox.setText("Diff");
+        diffVisibilityBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                diffVisibilityBoxItemStateChanged(evt);
             }
         });
 
@@ -97,7 +97,7 @@ public class WindowWrapper extends javax.swing.JPanel {
                 .addGroup(visibilityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sineVisibilityBox)
                     .addComponent(cosineVisibilityBox)
-                    .addComponent(diffBox))
+                    .addComponent(diffVisibilityBox))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         visibilityPanelLayout.setVerticalGroup(
@@ -108,7 +108,7 @@ public class WindowWrapper extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cosineVisibilityBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(diffBox)
+                .addComponent(diffVisibilityBox)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -246,7 +246,7 @@ public class WindowWrapper extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        canvasPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        canvasPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -255,12 +255,12 @@ public class WindowWrapper extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(canvasPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
+                .addComponent(canvasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(canvasPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(canvasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -272,26 +272,38 @@ public class WindowWrapper extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_scaleChangeBtnActionPerformed
 
-    private void sineVisibilityBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sineVisibilityBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sineVisibilityBoxActionPerformed
+    private void sineVisibilityBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sineVisibilityBoxItemStateChanged
+        if (sineVisibilityBox.isSelected()) {
+            canvasPanel.showComponent(ComponentType.SINE);
+        } else {
+            canvasPanel.hideComponent(ComponentType.SINE);
+        }
+    }//GEN-LAST:event_sineVisibilityBoxItemStateChanged
 
-    private void cosineVisibilityBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cosineVisibilityBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cosineVisibilityBoxActionPerformed
+    private void cosineVisibilityBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cosineVisibilityBoxItemStateChanged
+        if (cosineVisibilityBox.isSelected()) {
+            canvasPanel.showComponent(ComponentType.COSINE);
+        } else {
+            canvasPanel.hideComponent(ComponentType.COSINE);
+        }
+    }//GEN-LAST:event_cosineVisibilityBoxItemStateChanged
 
-    private void diffBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diffBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diffBoxActionPerformed
+    private void diffVisibilityBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_diffVisibilityBoxItemStateChanged
+        if (diffVisibilityBox.isSelected()) {
+            canvasPanel.showComponent(ComponentType.DIFF);
+        } else {
+            canvasPanel.hideComponent(ComponentType.DIFF);
+        }
+    }//GEN-LAST:event_diffVisibilityBoxItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private graphplotter.ui.components.CanvasPanel canvasPanel1;
+    private graphplotter.ui.components.CanvasPanel canvasPanel;
     private javax.swing.JCheckBox cosineVisibilityBox;
     private javax.swing.JLabel dashLabel;
     private javax.swing.JTextField devidentInput;
     private javax.swing.JTextField devisorInput;
-    private javax.swing.JCheckBox diffBox;
+    private javax.swing.JCheckBox diffVisibilityBox;
     private javax.swing.JTextField fifthFilterInput;
     private javax.swing.JLabel fifthFilterLabel;
     private javax.swing.JButton filterApplyBtn;

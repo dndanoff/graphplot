@@ -5,35 +5,28 @@
  */
 package graphplotter.ui.components;
 
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
-import javax.swing.JComponent;
 
 /**
  *
  * @author Denis
  */
-public class CoordinateSystem extends JComponent {
+public class CoordinateSystem extends BaseComponent{
 
     private Point center;
     
-    public CoordinateSystem() {
+    public CoordinateSystem(CanvasPanel parent) {
+        super(parent);
     }
     
-    @Override
     public void paintComponent(Graphics g) {
         this.center = calculateCenter();
-        super.paintComponent(g);
         drawX(g);
         drawY(g);
     }
     
-    private Dimension getPanelSize(){
-        return getParent().getSize();
-    }
-
     private Point calculateCenter(){
         Dimension size = getPanelSize();
         int x = 20*size.width/100;
