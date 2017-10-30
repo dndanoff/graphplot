@@ -6,6 +6,7 @@
 package graphplotter;
 
 import graphplotter.model.vo.ComponentType;
+import graphplotter.model.vo.Scale;
 import java.awt.Dimension;
 
 /**
@@ -14,17 +15,18 @@ import java.awt.Dimension;
  */
 public class WindowWrapper extends javax.swing.JPanel {
 
+    private Dimension size;
+    
     /**
      * Creates new form WindowWrapper
      */
-    public WindowWrapper() {
+    public WindowWrapper(Dimension size) {
+        this.size = size;
         initComponents();
         initCustomComponents();
     }
 
     private void initCustomComponents() {
-        Dimension s = canvasPanel.getSize();
-        System.out.println("");
     }
 
     /**
@@ -55,10 +57,9 @@ public class WindowWrapper extends javax.swing.JPanel {
         fifthFilterLabel = new javax.swing.JLabel();
         scalePanel = new javax.swing.JPanel();
         scaleChangeBtn = new javax.swing.JButton();
-        devidentInput = new javax.swing.JTextField();
-        devisorInput = new javax.swing.JTextField();
         dashLabel = new javax.swing.JLabel();
-        canvasPanel = new graphplotter.ui.components.CanvasPanel();
+        scaleInput = new javax.swing.JSpinner();
+        canvasPanel = new graphplotter.ui.components.CanvasPanel(this.size);
 
         menuPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -194,7 +195,10 @@ public class WindowWrapper extends javax.swing.JPanel {
             }
         });
 
-        dashLabel.setText("/");
+        dashLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        dashLabel.setText("X");
+
+        scaleInput.setValue(1);
 
         javax.swing.GroupLayout scalePanelLayout = new javax.swing.GroupLayout(scalePanel);
         scalePanel.setLayout(scalePanelLayout);
@@ -202,26 +206,22 @@ public class WindowWrapper extends javax.swing.JPanel {
             scalePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scalePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(scalePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(scalePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(scaleChangeBtn)
                     .addGroup(scalePanelLayout.createSequentialGroup()
-                        .addComponent(scaleChangeBtn)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(scalePanelLayout.createSequentialGroup()
-                        .addComponent(devidentInput, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dashLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(devisorInput)
-                        .addGap(14, 14, 14))))
+                        .addGap(5, 5, 5)
+                        .addComponent(dashLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(scaleInput)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         scalePanelLayout.setVerticalGroup(
             scalePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scalePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(scalePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(devidentInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dashLabel)
-                    .addComponent(devisorInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scaleInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(scaleChangeBtn)
                 .addGap(26, 26, 26))
@@ -270,6 +270,9 @@ public class WindowWrapper extends javax.swing.JPanel {
 
     private void scaleChangeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleChangeBtnActionPerformed
         // TODO add your handling code here:
+        Integer scale = (Integer)scaleInput.getValue();
+        canvasPanel.setScale(new Scale(scale));
+        canvasPanel.repaint();
     }//GEN-LAST:event_scaleChangeBtnActionPerformed
 
     private void sineVisibilityBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sineVisibilityBoxItemStateChanged
@@ -301,8 +304,6 @@ public class WindowWrapper extends javax.swing.JPanel {
     private graphplotter.ui.components.CanvasPanel canvasPanel;
     private javax.swing.JCheckBox cosineVisibilityBox;
     private javax.swing.JLabel dashLabel;
-    private javax.swing.JTextField devidentInput;
-    private javax.swing.JTextField devisorInput;
     private javax.swing.JCheckBox diffVisibilityBox;
     private javax.swing.JTextField fifthFilterInput;
     private javax.swing.JLabel fifthFilterLabel;
@@ -314,6 +315,7 @@ public class WindowWrapper extends javax.swing.JPanel {
     private javax.swing.JLabel forthFilterLabel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton scaleChangeBtn;
+    private javax.swing.JSpinner scaleInput;
     private javax.swing.JPanel scalePanel;
     private javax.swing.JTextField secondFilterInput;
     private javax.swing.JLabel secondFilterLabel;

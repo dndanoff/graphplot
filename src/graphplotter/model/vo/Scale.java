@@ -11,20 +11,16 @@ package graphplotter.model.vo;
  */
 public final class Scale {
 
-    private final int unit;
-    private final int devisor;
+    private final int multiplier;
 
-    public Scale(int unit, int devisor) {
-        this.unit = unit;
-        this.devisor = devisor;
+    public Scale(int multiplier) {
+        if(multiplier <= 0){
+            throw new IllegalArgumentException("Scaling factor cannot be less than 0");
+        }
+        this.multiplier = multiplier;
     }
 
-    public int getUnit() {
-        return unit;
+    public int getMultiplier() {
+        return multiplier;
     }
-
-    public int getDevisor() {
-        return devisor;
-    }
-
 }

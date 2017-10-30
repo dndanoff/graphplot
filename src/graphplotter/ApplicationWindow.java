@@ -26,7 +26,7 @@ public class ApplicationWindow {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(size);
         frame.setResizable(false);
-        frame.setContentPane(new WindowWrapper());
+        frame.setContentPane(new WindowWrapper(size));
         frame.setVisible(true);
     }
 

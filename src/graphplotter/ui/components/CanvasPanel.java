@@ -7,11 +7,13 @@ package graphplotter.ui.components;
 
 import graphplotter.model.entity.Signal;
 import graphplotter.model.vo.ComponentType;
-import graphplotter.model.vo.Frequency;
+import graphplotter.model.vo.Scale;
+import graphplotter.service.CosineSignalFactory;
+import graphplotter.service.SignalSubstractor;
+import graphplotter.service.SineSignalFactory;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
-import java.util.Arrays;
-import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
@@ -21,29 +23,39 @@ import javax.swing.JPanel;
  */
 public final class CanvasPanel extends JPanel{
     
+    private Dimension size;
+    private Scale scale;
+    
     private CoordinateSystem coordinateSystem;
     private Wave sine;
     private Wave cosine;
     private Wave diff;
     
-    public CanvasPanel(){
+    public CanvasPanel(Dimension size){
+        this.size = size;
+        this.scale = new Scale(1);
         setBackground(Color.WHITE);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        
+        Signal sineSignal = new SineSignalFactory(size.width).build();
+        Signal cosineSignal = new CosineSignalFactory(size.width).build();
+        this.sine = new Wave(this, sineSignal, Color.RED);
+        this.cosine = new Wave(this, cosineSignal, Color.BLUE);
+        this.diff = new Wave(this, new SignalSubstractor().combine(sineSignal, cosineSignal), Color.ORANGE);
         this.coordinateSystem = new CoordinateSystem(this);
-        List<Double> values = Arrays.asList(new Double[]{123d,186d,230d,432d});
-        Signal signal = new Signal(new Frequency(500),values);
-        this.sine = new Wave(this, signal);
-        this.cosine = new Wave(this, new Signal());
-        this.diff = new Wave(this, new Signal());
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         coordinateSystem.paint(g);
-        sine.paint(g);
-//        cosine.paint(g);
-//        diff.paint(g);
+        sine.paint(g, coordinateSystem.getCenter(), scale);
+        cosine.paint(g, coordinateSystem.getCenter(), scale);
+        diff.paint(g, coordinateSystem.getCenter(), scale);
+    }
+    
+    public void setScale(Scale scale){
+        this.scale = scale;
     }
     
     public void hideComponent(ComponentType componentType){
