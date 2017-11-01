@@ -23,11 +23,11 @@ public class Signal {
     }
     
     public Signal(Frequency frequency, List<Double> samples) {
-        this.frequency = frequency;
-        this.samples = new ArrayList<>();
-        if(samples != null && !samples.isEmpty()){
-            this.samples.addAll(samples);
+        if(samples == null || samples.isEmpty()){
+            throw new IllegalArgumentException("Signal values cannot be null or empty!");
         }
+        this.frequency = frequency;
+        this.samples = new ArrayList<>(samples);
     }
 
     public Frequency getFrequency() {

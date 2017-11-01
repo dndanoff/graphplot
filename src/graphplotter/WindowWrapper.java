@@ -6,8 +6,11 @@
 package graphplotter;
 
 import graphplotter.model.vo.ComponentType;
+import graphplotter.model.vo.Filter;
 import graphplotter.model.vo.Scale;
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -23,10 +26,6 @@ public class WindowWrapper extends javax.swing.JPanel {
     public WindowWrapper(Dimension size) {
         this.size = size;
         initComponents();
-        initCustomComponents();
-    }
-
-    private void initCustomComponents() {
     }
 
     /**
@@ -55,6 +54,10 @@ public class WindowWrapper extends javax.swing.JPanel {
         thirdFilterLabel = new javax.swing.JLabel();
         forthFilterLabel = new javax.swing.JLabel();
         fifthFilterLabel = new javax.swing.JLabel();
+        sixthFilterLabel = new javax.swing.JLabel();
+        sixthFilterInput = new javax.swing.JTextField();
+        seventhFilterLabel = new javax.swing.JLabel();
+        seventhFilterInput = new javax.swing.JTextField();
         scalePanel = new javax.swing.JPanel();
         scaleChangeBtn = new javax.swing.JButton();
         dashLabel = new javax.swing.JLabel();
@@ -132,6 +135,10 @@ public class WindowWrapper extends javax.swing.JPanel {
 
         fifthFilterLabel.setText("F4");
 
+        sixthFilterLabel.setText("F6");
+
+        seventhFilterLabel.setText("F7");
+
         javax.swing.GroupLayout filterPanelLayout = new javax.swing.GroupLayout(filterPanel);
         filterPanel.setLayout(filterPanelLayout);
         filterPanelLayout.setHorizontalGroup(
@@ -161,26 +168,44 @@ public class WindowWrapper extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(forthFilterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fifthFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                            .addComponent(fifthFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sixthFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sixthFilterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(seventhFilterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seventhFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         filterPanelLayout.setVerticalGroup(
             filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filterPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstFilterLabel)
-                    .addComponent(secondFilterLabel)
-                    .addComponent(thirdFilterLabel)
-                    .addComponent(forthFilterLabel)
-                    .addComponent(fifthFilterLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(secondFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(thirdFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(forthFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fifthFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filterPanelLayout.createSequentialGroup()
+                        .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(firstFilterLabel)
+                            .addComponent(secondFilterLabel)
+                            .addComponent(thirdFilterLabel)
+                            .addComponent(forthFilterLabel)
+                            .addComponent(fifthFilterLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(firstFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(secondFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(thirdFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(forthFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fifthFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filterPanelLayout.createSequentialGroup()
+                        .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(seventhFilterLabel)
+                            .addComponent(sixthFilterLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sixthFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seventhFilterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filterApplyBtn)
                 .addContainerGap())
@@ -222,9 +247,9 @@ public class WindowWrapper extends javax.swing.JPanel {
                 .addGroup(scalePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dashLabel)
                     .addComponent(scaleInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scaleChangeBtn)
-                .addGap(26, 26, 26))
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
@@ -240,8 +265,8 @@ public class WindowWrapper extends javax.swing.JPanel {
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addComponent(visibilityPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(filterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(filterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scalePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -255,7 +280,7 @@ public class WindowWrapper extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(canvasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
+                .addComponent(canvasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,14 +290,20 @@ public class WindowWrapper extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void filterApplyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterApplyBtnActionPerformed
-        // TODO add your handling code here:
+        List<Integer> fitlerValues = new ArrayList<>();
+        fitlerValues.add(Integer.parseInt(firstFilterInput.getText()));
+        fitlerValues.add(Integer.parseInt(secondFilterInput.getText()));
+        fitlerValues.add(Integer.parseInt(thirdFilterInput.getText()));
+        fitlerValues.add(Integer.parseInt(forthFilterInput.getText()));
+        fitlerValues.add(Integer.parseInt(fifthFilterInput.getText()));
+        
+        Filter filter = new Filter(fitlerValues);
+        canvasPanel.applyFilter(filter);
     }//GEN-LAST:event_filterApplyBtnActionPerformed
 
     private void scaleChangeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleChangeBtnActionPerformed
-        // TODO add your handling code here:
         Integer scale = (Integer)scaleInput.getValue();
-        canvasPanel.setScale(new Scale(scale));
-        canvasPanel.repaint();
+        canvasPanel.changeScale(new Scale(scale));
     }//GEN-LAST:event_scaleChangeBtnActionPerformed
 
     private void sineVisibilityBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sineVisibilityBoxItemStateChanged
@@ -319,7 +350,11 @@ public class WindowWrapper extends javax.swing.JPanel {
     private javax.swing.JPanel scalePanel;
     private javax.swing.JTextField secondFilterInput;
     private javax.swing.JLabel secondFilterLabel;
+    private javax.swing.JTextField seventhFilterInput;
+    private javax.swing.JLabel seventhFilterLabel;
     private javax.swing.JCheckBox sineVisibilityBox;
+    private javax.swing.JTextField sixthFilterInput;
+    private javax.swing.JLabel sixthFilterLabel;
     private javax.swing.JTextField thirdFilterInput;
     private javax.swing.JLabel thirdFilterLabel;
     private javax.swing.JPanel visibilityPanel;

@@ -7,8 +7,10 @@ package graphplotter.ui.components;
 
 import graphplotter.model.entity.Signal;
 import graphplotter.model.vo.ComponentType;
+import graphplotter.model.vo.Filter;
 import graphplotter.model.vo.Scale;
 import graphplotter.service.CosineSignalFactory;
+import graphplotter.service.FilterApplier;
 import graphplotter.service.SignalSubstractor;
 import graphplotter.service.SineSignalFactory;
 import java.awt.Color;
@@ -32,17 +34,17 @@ public final class CanvasPanel extends JPanel{
     private Wave diff;
     
     public CanvasPanel(Dimension size){
-        this.size = size;
-        this.scale = new Scale(1);
         setBackground(Color.WHITE);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
+        this.size = size;
+        this.scale = new Scale(1);
+        this.coordinateSystem = new CoordinateSystem(this);
         Signal sineSignal = new SineSignalFactory(size.width).build();
         Signal cosineSignal = new CosineSignalFactory(size.width).build();
         this.sine = new Wave(this, sineSignal, Color.RED);
         this.cosine = new Wave(this, cosineSignal, Color.BLUE);
         this.diff = new Wave(this, new SignalSubstractor().combine(sineSignal, cosineSignal), Color.ORANGE);
-        this.coordinateSystem = new CoordinateSystem(this);
     }
 
     @Override
@@ -52,10 +54,6 @@ public final class CanvasPanel extends JPanel{
         sine.paint(g, coordinateSystem.getCenter(), scale);
         cosine.paint(g, coordinateSystem.getCenter(), scale);
         diff.paint(g, coordinateSystem.getCenter(), scale);
-    }
-    
-    public void setScale(Scale scale){
-        this.scale = scale;
     }
     
     public void hideComponent(ComponentType componentType){
@@ -82,7 +80,15 @@ public final class CanvasPanel extends JPanel{
         repaint();
     }
     
-    public void changeScale(int devident, int devisor){
+    public void changeScale(Scale scale){
+        this.scale = scale;
+        repaint();
+    }
+    
+    public void applyFilter(Filter filter){
+        FilterApplier filterApplier = new FilterApplier();
+        sine.setSignal(filterApplier.apply(filter, sine.getSignal()));
+        cosine.setSignal(filterApplier.apply(filter, cosine.getSignal()));
         repaint();
     }
 }

@@ -19,7 +19,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="menuPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="canvasPanel" pref="542" max="32767" attributes="0"/>
+              <Component id="canvasPanel" pref="644" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,8 +53,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="visibilityPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="filterPanel" min="-2" pref="109" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="filterPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="scalePanel" min="-2" pref="92" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -171,9 +171,19 @@
                                   <Component id="forthFilterLabel" min="-2" pref="19" max="-2" attributes="0"/>
                                   <Component id="fifthFilterInput" min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sixthFilterInput" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+                                  <Component id="sixthFilterLabel" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="seventhFilterLabel" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+                                  <Component id="seventhFilterInput" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -181,20 +191,35 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="firstFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="secondFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="thirdFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="forthFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fifthFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="firstFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="secondFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="thirdFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="forthFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fifthFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="firstFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="secondFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="thirdFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="forthFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fifthFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="firstFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="secondFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="thirdFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="forthFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fifthFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="seventhFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sixthFilterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="sixthFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="seventhFilterInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="filterApplyBtn" min="-2" max="-2" attributes="0"/>
@@ -247,6 +272,20 @@
                 <Property name="text" type="java.lang.String" value="F4"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="sixthFilterLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="F6"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="sixthFilterInput">
+            </Component>
+            <Component class="javax.swing.JLabel" name="seventhFilterLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="F7"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="seventhFilterInput">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="scalePanel">
@@ -261,22 +300,18 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="scaleChangeBtn" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="scaleChangeBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="devidentInput" min="-2" pref="50" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="dashLabel" min="-2" pref="7" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="devisorInput" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="dashLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="scaleInput" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -285,13 +320,12 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="devidentInput" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="dashLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="devisorInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="scaleInput" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="scaleChangeBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -305,13 +339,19 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="scaleChangeBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="devidentInput">
-            </Component>
-            <Component class="javax.swing.JTextField" name="devisorInput">
-            </Component>
             <Component class="javax.swing.JLabel" name="dashLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="/"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="X"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="scaleInput">
+              <Properties>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="1" type="code"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -326,6 +366,9 @@
           </Border>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new graphplotter.ui.components.CanvasPanel(this.size)"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

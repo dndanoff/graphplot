@@ -22,7 +22,7 @@ public class ApplicationWindow {
 
     public void display() {
         JFrame frame = new JFrame();
-        frame.setTitle("Simple Plot");
+        frame.setTitle("Visual Signals");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(size);
         frame.setResizable(false);

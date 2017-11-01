@@ -25,6 +25,14 @@ public class Wave extends BaseComponent {
         this.signal = signal;
     }
 
+    public void setSignal(Signal signal){
+        this.signal = signal;
+    }
+
+    public Signal getSignal() {
+        return signal;
+    }
+    
     public void paintComponent(Graphics g, Point center, Scale scale) {
          Polygon p = new Polygon();
         

@@ -17,10 +17,10 @@ public final class Filter {
     private final List<Integer> values;
 
     public Filter(List<Integer> values) {
-        this.values = new ArrayList<>();
-        if(values != null && !values.isEmpty()){
-            this.values.addAll(values);
+        if(values == null || values.isEmpty()){
+            throw new IllegalArgumentException("Filter values cannot be null or empty!");
         }
+        this.values = new ArrayList<>(values);
     }
 
     public List<Integer> getValues() {
