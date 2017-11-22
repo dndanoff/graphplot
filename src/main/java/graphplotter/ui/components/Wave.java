@@ -12,10 +12,6 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
 
-/**
- *
- * @author Denis
- */
 public class Wave extends BaseComponent {
 
     private Signal signal;

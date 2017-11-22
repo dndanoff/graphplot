@@ -5,10 +5,6 @@
  */
 package graphplotter.model.vo;
 
-/**
- *
- * @author Denis
- */
 public final class Frequency {
 
     private final int value;

@@ -11,10 +11,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 
-/**
- *
- * @author Denis
- */
 public abstract class BaseComponent {
 
     protected CanvasPanel parent;

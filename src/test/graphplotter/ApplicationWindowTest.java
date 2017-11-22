@@ -5,10 +5,6 @@
  */
 package graphplotter;
 
-/**
- *
- * @author Denis
- */
 public class ApplicationWindowTest {
     
 }

@@ -6,12 +6,9 @@
 package graphplotter;
 
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 
-/**
- *
- * @author Denis
- */
 public class ApplicationWindow {
 
     private final Dimension size;
@@ -31,7 +28,11 @@ public class ApplicationWindow {
     }
 
     public static void main(String args[]) {
-        ApplicationWindow window = new ApplicationWindow(800, 400);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int)screenSize.getWidth();
+        int height = (int)screenSize.getHeight();
+        
+        ApplicationWindow window = new ApplicationWindow(width, height);
         window.display();
     }
 

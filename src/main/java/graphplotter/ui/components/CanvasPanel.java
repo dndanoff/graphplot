@@ -19,10 +19,6 @@ import java.awt.Graphics;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Denis
- */
 public final class CanvasPanel extends JPanel{
     
     private Dimension size;
@@ -32,6 +28,11 @@ public final class CanvasPanel extends JPanel{
     private Wave sine;
     private Wave cosine;
     private Wave diff;
+    
+    //Needed to be visualized in Netbeans
+    public CanvasPanel(){
+        this(new Dimension(800,400));
+    }
     
     public CanvasPanel(Dimension size){
         setBackground(Color.WHITE);

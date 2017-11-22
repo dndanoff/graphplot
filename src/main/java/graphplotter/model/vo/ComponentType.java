@@ -5,10 +5,6 @@
  */
 package graphplotter.model.vo;
 
-/**
- *
- * @author Denis
- */
 public enum ComponentType {
     SINE,
     COSINE,

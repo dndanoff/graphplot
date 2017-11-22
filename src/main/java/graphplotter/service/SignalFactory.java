@@ -7,10 +7,6 @@ package graphplotter.service;
 
 import graphplotter.model.entity.Signal;
 
-/**
- *
- * @author Denis
- */
 public interface SignalFactory {
     public Signal build();
 }

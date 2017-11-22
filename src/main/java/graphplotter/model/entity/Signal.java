@@ -9,10 +9,6 @@ import graphplotter.model.vo.Frequency;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Denis
- */
 public class Signal {
     
     private Frequency frequency;

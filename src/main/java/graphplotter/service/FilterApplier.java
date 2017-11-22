@@ -10,10 +10,6 @@ import graphplotter.model.vo.Filter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Denis
- */
 public class FilterApplier {
 
     public Signal apply(Filter filter, Signal original) {

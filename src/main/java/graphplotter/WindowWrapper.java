@@ -68,6 +68,8 @@ public class WindowWrapper extends javax.swing.JPanel {
 
         visibilityPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Visibility"));
 
+        sineVisibilityBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        sineVisibilityBox.setForeground(new java.awt.Color(255, 0, 0));
         sineVisibilityBox.setSelected(true);
         sineVisibilityBox.setText("Sine");
         sineVisibilityBox.addItemListener(new java.awt.event.ItemListener() {
@@ -76,6 +78,8 @@ public class WindowWrapper extends javax.swing.JPanel {
             }
         });
 
+        cosineVisibilityBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        cosineVisibilityBox.setForeground(new java.awt.Color(0, 0, 255));
         cosineVisibilityBox.setSelected(true);
         cosineVisibilityBox.setText("Cosine");
         cosineVisibilityBox.addItemListener(new java.awt.event.ItemListener() {
@@ -84,6 +88,8 @@ public class WindowWrapper extends javax.swing.JPanel {
             }
         });
 
+        diffVisibilityBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        diffVisibilityBox.setForeground(new java.awt.Color(255, 153, 51));
         diffVisibilityBox.setSelected(true);
         diffVisibilityBox.setText("Diff");
         diffVisibilityBox.addItemListener(new java.awt.event.ItemListener() {

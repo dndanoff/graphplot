@@ -8,10 +8,6 @@ package graphplotter.model.vo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Denis
- */
 public final class Filter {
     
     private final List<Integer> values;
