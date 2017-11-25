@@ -131,19 +131,19 @@ public class WindowWrapper extends javax.swing.JPanel {
             }
         });
 
-        firstFilterLabel.setText("F1");
+        firstFilterLabel.setText("t-3");
 
-        secondFilterLabel.setText("F2");
+        secondFilterLabel.setText("t-2");
 
-        thirdFilterLabel.setText("F3");
+        thirdFilterLabel.setText("t-1");
 
-        forthFilterLabel.setText("F5");
+        forthFilterLabel.setText("t+1");
 
-        fifthFilterLabel.setText("F4");
+        fifthFilterLabel.setText("  t");
 
-        sixthFilterLabel.setText("F6");
+        sixthFilterLabel.setText("t+2");
 
-        seventhFilterLabel.setText("F7");
+        seventhFilterLabel.setText("t+3");
 
         javax.swing.GroupLayout filterPanelLayout = new javax.swing.GroupLayout(filterPanel);
         filterPanel.setLayout(filterPanelLayout);

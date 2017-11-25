@@ -267,39 +267,39 @@
             </Component>
             <Component class="javax.swing.JLabel" name="firstFilterLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="F1"/>
+                <Property name="text" type="java.lang.String" value="t-3"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="secondFilterLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="F2"/>
+                <Property name="text" type="java.lang.String" value="t-2"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="thirdFilterLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="F3"/>
+                <Property name="text" type="java.lang.String" value="t-1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="forthFilterLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="F5"/>
+                <Property name="text" type="java.lang.String" value="t+1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="fifthFilterLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="F4"/>
+                <Property name="text" type="java.lang.String" value="  t"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="sixthFilterLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="F6"/>
+                <Property name="text" type="java.lang.String" value="t+2"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="sixthFilterInput">
             </Component>
             <Component class="javax.swing.JLabel" name="seventhFilterLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="F7"/>
+                <Property name="text" type="java.lang.String" value="t+3"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="seventhFilterInput">
